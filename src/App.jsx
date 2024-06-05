@@ -14,10 +14,12 @@ import Blog from "./pages/blog";
 import Basket from "./pages/basket";
 import Favorites from "./pages/favorites";
 import Error from "./pages/error";
+import Adv from "./components/adv";
 
 function App() {
   return (
     <>
+      <Adv />
       <Nav />
       <Routes>
         <Route path="/" element={<Home />} />

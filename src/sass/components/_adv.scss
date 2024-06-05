@@ -1,0 +1,31 @@
+.adv {
+  padding: 12px 0px;
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 27px;
+  }
+  &__link {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    color: #454545;
+    opacity: 50%;
+  }
+  &__context {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  &__text {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    color: #454545;
+  }
+}
