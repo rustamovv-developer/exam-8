@@ -2,6 +2,9 @@
 
 .footer {
   padding: 80px 0px;
+  @media (max-width: 900px) {
+    padding: 45px 0px;
+  }
   &__wrapper {
     display: flex;
     align-items: flex-start;

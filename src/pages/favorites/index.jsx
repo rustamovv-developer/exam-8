@@ -1,9 +1,17 @@
-import React, { memo } from "react";
+import React, { memo, useEffect } from "react";
+import FavoritesWrapper from "../../components/favorites-wrapper";
+import "../../sass/pages/favorites.scss";
 
 const Favorites = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <main className="favorites" id="favorites">
-      Favorites
+      <div className="container">
+        <b className="title">Избранное</b>
+        <FavoritesWrapper />
+      </div>
     </main>
   );
 };

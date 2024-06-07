@@ -1,0 +1,103 @@
+@import "../utils/variables";
+
+.contact {
+  padding: 50px 0px;
+  &__wrapper {
+    margin-bottom: 50px;
+  }
+  &__card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  &__title {
+    font-family: "M600";
+    font-size: 24px;
+    line-height: 32px;
+    color: $primary-color;
+    @media (max-width: 700px) {
+      font-size: 20px;
+      line-height: 27px;
+    }
+  }
+  &__address {
+    max-width: 210px;
+    font-family: "M400";
+    font-size: 16px;
+    line-height: 21px;
+    color: $primary-color;
+  }
+  &__bottom {
+    position: relative;
+  }
+  &__map {
+    @media (max-width: 1000px) {
+      max-height: 670px;
+    }
+  }
+  &__info {
+    position: absolute;
+    top: auto;
+    right: 0;
+    bottom: 32px;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    background-color: $white-color;
+    max-width: 1300px;
+    border-radius: 15px;
+    padding: 58px 60px;
+    @media (max-width: 1000px) {
+      position: static;
+      padding: 24px;
+    }
+  }
+  &__box {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @media (max-width: 1000px) {
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+    @media (max-width: 620px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  &__context {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  &__text {
+    font-family: "M400";
+    font-size: 16px;
+    line-height: 22px;
+    color: $primary-color;
+  }
+  &__btn {
+    width: 216px;
+    padding: 14px 0px;
+    background-color: $primary-color;
+    color: $white-color;
+    font-family: "M600";
+    font-size: 16px;
+    line-height: 22px;
+    border-radius: 100px;
+    text-align: center;
+    @media (max-width: 700px) {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: auto;
+      text-align: center;
+    }
+  }
+}

@@ -164,3 +164,15 @@ textarea {
     max-width: 20px;
   }
 }
+.title {
+  display: flex;
+  max-width: 319px;
+  font-family: "M700";
+  font-size: 64px;
+  line-height: 70px;
+  color: $primary-color;
+  @media (max-width: 700px) {
+    font-size: 28px;
+    line-height: 38px;
+  }
+}

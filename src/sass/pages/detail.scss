@@ -1,0 +1,173 @@
+@import "../utils/variables";
+
+.detail {
+  padding: 50px 0px;
+  @media (max-width: 900px) {
+    padding: 30px 0px;
+  }
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  &__column {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 56px;
+    margin-bottom: 180px;
+  }
+  &__img {
+    max-width: 650px;
+    height: 600px;
+    object-fit: contain;
+    border: 1px solid #dddddd;
+  }
+  &__context {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  &__title {
+    max-width: 600px;
+    font-family: "M500";
+    font-size: 40px;
+    line-height: 44px;
+    color: $primary-color;
+    margin-bottom: 40px;
+  }
+  &__contact {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+  }
+  &__texts {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  &__category {
+    font-family: "M400";
+    font-size: 14px;
+    line-height: 22px;
+    color: #b3b3b3;
+  }
+  &__green {
+    font-family: "M400";
+    font-size: 14px;
+    line-height: 22px;
+    color: #4d932c;
+  }
+  &__prices {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  &__price {
+    font-family: "M500";
+    font-size: 40px;
+    line-height: 64px;
+    color: #101010;
+  }
+  &__oldprice {
+    font-family: "M500";
+    font-size: 18px;
+    line-height: 28px;
+    color: #b3b3b3;
+    margin-top: 15px;
+  }
+  &__text {
+    width: 100%;
+    font-family: "M400";
+    font-size: 16px;
+    line-height: 26px;
+    color: $primary-color;
+    margin-bottom: 48px;
+  }
+  &__slice {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+  }
+  &__calc {
+    width: 150px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    align-items: center;
+    padding: 16px;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+  }
+  &__pm {
+    font-family: "M500";
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    color: #101010;
+  }
+  &__quantity {
+    font-family: "M500";
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    color: #101010;
+  }
+  &__btn {
+    padding: 16px 0px;
+    width: 180px;
+    background-color: $primary-color;
+    color: $white-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 10px;
+    font-family: "M500";
+    font-size: 16px;
+    line-height: 20px;
+  }
+  &__info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  &__box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  &__card {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 24px;
+    transition: all 250ms;
+    &:hover {
+      transform: scale(1.02);
+      box-shadow: 0px 1px 15px $primary-color;
+      border-radius: 10px;
+    }
+    &__title {
+      font-family: "M500";
+      font-size: 16px;
+      line-height: 20px;
+      color: $primary-color;
+    }
+    &__text {
+      max-width: 600px;
+      color: $primary-color;
+      font-family: "M300";
+      font-size: 18px;
+      line-height: 28px;
+      text-align: right;
+    }
+  }
+}

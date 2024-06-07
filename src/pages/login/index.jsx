@@ -1,6 +1,9 @@
-import React, { memo } from "react";
+import React, { memo, useEffect } from "react";
 
 const Login = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <main className="login" id="login">
       Login

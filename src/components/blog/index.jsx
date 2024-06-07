@@ -12,11 +12,11 @@ import img3 from "../../assets/images/blog-3.png";
 import arrowTop from "../../assets/images/arrow-top.svg";
 import "../../sass/components/_blog.scss";
 
-const Blog = () => {
+const Blog = ({ display }) => {
   return (
     <section className="blog" id="blog">
       <div className="container">
-        <div className="context">
+        <div style={{ display: display }} className="context">
           <p className="context__text">Блог</p>
           <Link to="/catalogs" className="context__btn">
             Весь каталог{" "}

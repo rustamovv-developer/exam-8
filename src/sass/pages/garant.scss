@@ -1,0 +1,70 @@
+@import "../utils/variables";
+
+.garant {
+  padding: 50px 0px;
+  @media (max-width: 900px) {
+    padding: 30px 0px;
+  }
+  &__wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    @media (max-width: 1000px) {
+      gap: 24px;
+    }
+    @media (max-width: 450px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  &__info {
+    max-width: 640px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+  }
+  &__title {
+    font-family: "M600";
+    font-size: 24px;
+    line-height: 34px;
+    color: $primary-color;
+    @media (max-width: 700px) {
+      font-size: 20px;
+      line-height: 28px;
+    }
+  }
+  &__text,
+  &__item {
+    width: 100%;
+    font-family: "M400";
+    font-size: 20px;
+    line-height: 28px;
+    color: $dark-color;
+    letter-spacing: -1%;
+    @media (max-width: 700px) {
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
+  &__item {
+    position: relative;
+    padding-left: 25px;
+    &::after {
+      position: absolute;
+      content: "";
+      width: 5px;
+      height: 5px;
+      background-color: $dark-color;
+      border-radius: 5px;
+      top: 12px;
+      left: 0;
+      @media (max-width: 700px) {
+        width: 3px;
+        height: 3px;
+        border-radius: 3px;
+        top: 8px;
+      }
+    }
+  }
+}

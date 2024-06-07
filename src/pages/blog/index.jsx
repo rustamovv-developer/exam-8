@@ -1,11 +1,22 @@
-import React, { memo } from "react";
+import React, { memo, useEffect } from "react";
+import Blog from "../../components/blog";
+import "../../sass/pages/blog.scss";
 
-const Blog = () => {
+const BlogPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
-    <main className="blog" id="blog">
-      Blog
+    <main className="blog__page" id="blog__page">
+      <div className="container">
+        <div className="context">
+          <p className="context__text">Блог</p>
+        </div>
+      </div>
+      <Blog display={"none"} />
+      <Blog display={"none"} />
     </main>
   );
 };
 
-export default memo(Blog);
+export default memo(BlogPage);

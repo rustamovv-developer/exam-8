@@ -15,7 +15,6 @@ const HomeProducts = () => {
   const { data, error, isLoading } = useGetProductQuery({ limit });
   let dispatch = useDispatch();
   const wishes = useSelector((state) => state.wishlist.value);
-  const cart = useSelector((state) => state.cart.value);
 
   let products = data?.map((el) => (
     <div key={el.id} className="home__products__card">

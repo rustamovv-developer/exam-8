@@ -1,0 +1,76 @@
+@import "../utils/variables";
+
+.return {
+  padding: 50px 0px;
+  @media (max-width: 900px) {
+    padding: 30px 0px;
+  }
+  &__wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+    @media (max-width: 450px) {
+      flex-direction: column;
+    }
+  }
+  &__info {
+    max-width: 640px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  &__title {
+    font-family: "M600";
+    font-size: 24px;
+    line-height: 34px;
+    color: $primary-color;
+    margin-bottom: 28px;
+    @media (max-width: 700px) {
+      font-size: 20px;
+      line-height: 28px;
+    }
+  }
+  &__text {
+    font-family: "M400";
+    font-size: 20px;
+    line-height: 28px;
+    color: $dark-color;
+    margin-bottom: 24px;
+    @media (max-width: 700px) {
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
+  &__list {
+    margin-bottom: 60px;
+  }
+  &__item {
+    position: relative;
+    padding-left: 25px;
+    color: $secondary-color;
+    font-family: "M400";
+    font-size: 20px;
+    line-height: 28px;
+    @media (max-width: 700px) {
+      font-size: 16px;
+      line-height: 22px;
+    }
+    &::after {
+      position: absolute;
+      content: "";
+      width: 5px;
+      height: 5px;
+      background-color: $secondary-color;
+      border-radius: 5px;
+      top: 12px;
+      left: 0;
+      @media (max-width: 700px) {
+        width: 3px;
+        height: 3px;
+        border-radius: 3px;
+        top: 8px;
+      }
+    }
+  }
+}
