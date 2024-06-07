@@ -15,6 +15,9 @@ import Basket from "./pages/basket";
 import Favorites from "./pages/favorites";
 import Error from "./pages/error";
 import Adv from "./components/adv";
+// toastify
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
@@ -35,6 +38,7 @@ function App() {
         <Route path="*" element={<Error />} />
       </Routes>
       <Footer />
+      <ToastContainer />
     </>
   );
 }

@@ -40,7 +40,7 @@ const Adv = () => {
             </li>
           </ul>
           <div className="adv__context">
-            <p className="adv__text">8 (800) 890-46-56</p>
+            <p className="adv__text">(+998) 88 704-19-80</p>
             <Link to="tel:+998887041980" className="adv__link">
               Заказать звонок
             </Link>
