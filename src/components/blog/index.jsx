@@ -18,8 +18,8 @@ const Blog = ({ display }) => {
       <div className="container">
         <div style={{ display: display }} className="context">
           <p className="context__text">Блог</p>
-          <Link to="/catalogs" className="context__btn">
-            Весь каталог{" "}
+          <Link to="/blog" className="context__btn">
+            Перейти в блог{" "}
             <img src={right} alt="arrow right" className="context__img" />
           </Link>
         </div>

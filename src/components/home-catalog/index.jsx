@@ -19,7 +19,7 @@ const HomeCatalog = () => {
       <div className="container">
         <div className="context">
           <p className="context__text">Каталог</p>
-          <Link to="/catalogs" className="context__btn">
+          <Link to="/categories" className="context__btn">
             Все каталог{" "}
             <img src={right} alt="arrow right" className="context__img" />
           </Link>

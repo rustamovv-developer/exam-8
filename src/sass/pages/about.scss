@@ -13,6 +13,9 @@
       align-items: flex-start;
     }
   }
+  &__titles {
+    width: 100%;
+  }
   &__big {
     display: flex;
     font-family: "M700";
@@ -38,6 +41,9 @@
       padding: 24px;
       width: 100%;
       margin-bottom: 8px;
+    }
+    @media (max-width: 600px) {
+      width: 100%;
     }
   }
   &__title {

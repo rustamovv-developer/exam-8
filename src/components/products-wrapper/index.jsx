@@ -6,6 +6,7 @@ import { addToCart } from "../../context/cartSlice";
 import heart from "../../assets/images/like.svg";
 import fillHeart from "../../assets/images/fill-heart.svg";
 import cartImg from "../../assets/images/light-cart.svg";
+import ProductsLoading from "../products-loading";
 
 const ProductsWrapper = () => {
   const { data, error, isLoading } = useGetProductQuery();
@@ -38,7 +39,7 @@ const ProductsWrapper = () => {
   ));
   return (
     <div className="products__wrapper" id="products__wrapper">
-      {products}
+      {isLoading ? <ProductsLoading /> : products}
     </div>
   );
 };

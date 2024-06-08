@@ -1,11 +1,9 @@
 import React, { memo } from "react";
+import { Navigate, Outlet } from "react-router-dom";
 
 const Auth = () => {
-  return (
-    <main className="auth" id="auth">
-      Auth
-    </main>
-  );
+  let user = localStorage.getItem("token");
+  return user ? <Outlet /> : <Navigate replace to={"/login"} />;
 };
 
 export default memo(Auth);

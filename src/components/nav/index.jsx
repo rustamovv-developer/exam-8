@@ -1,6 +1,7 @@
 import React, { memo, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { useGetProductQuery } from "../../context/productApi";
 import logo from "../../assets/images/logo.svg";
 import catologImg from "../../assets/images/catolog-icon.svg";
 import searchImg from "../../assets/images/search.svg";
@@ -15,8 +16,17 @@ const Nav = () => {
   const wishes = useSelector((state) => state.wishlist.value);
   const cart = useSelector((state) => state.cart.value);
 
+  const [searchValue, setSearchValue] = useState("");
   const [navShrink, setNavShrink] = useState(false);
   const [navMenu, setNavMenu] = useState(false);
+
+  const { data } = useGetProductQuery();
+
+  let handleSearch = (data) => {
+    return data?.filter((product) =>
+      product.title.toLowerCase().includes(searchValue.toLowerCase().trim())
+    );
+  };
 
   const handleNavShrink = () => {
     if (window.scrollY > 0) {
@@ -66,6 +76,8 @@ const Nav = () => {
               </button>
               <div className="nav__search">
                 <input
+                  value={searchValue}
+                  onChange={(e) => setSearchValue(e.target.value)}
                   type="text"
                   className="nav__search__input"
                   placeholder="Поиск по товарам"
@@ -75,6 +87,34 @@ const Nav = () => {
                   alt="search-img"
                   className="nav__search__icon"
                 />
+                {searchValue ? (
+                  <div className="nav__result">
+                    {searchValue.trim() ? (
+                      handleSearch(data)?.map((el) => (
+                        <Link
+                          to={`/products/${el.id}`}
+                          onClick={() => setSearchValue("")}
+                          className="nav__result__card"
+                          key={el.id}
+                        >
+                          <div className="nav__result__info">
+                            <img
+                              src={el.image[0]}
+                              alt={el.title}
+                              className="nav__result__img"
+                            />
+                            <h3 className="nav__result__title">{el.title}</h3>
+                          </div>
+                          <b className="nav__result__price">{el.price}₽</b>
+                        </Link>
+                      ))
+                    ) : (
+                      <></>
+                    )}
+                  </div>
+                ) : (
+                  <></>
+                )}
               </div>
             </div>
             <div className="nav__box">

@@ -8,6 +8,7 @@ import right from "../../assets/images/arrow-right.svg";
 import heart from "../../assets/images/like.svg";
 import fillHeart from "../../assets/images/fill-heart.svg";
 import cartImg from "../../assets/images/light-cart.svg";
+import ProductsLoading from "../products-loading";
 
 const HomeProducts = () => {
   const [limit, setLimit] = useState(8);
@@ -26,10 +27,14 @@ const HomeProducts = () => {
         )}
       </button>
       <img src={el.image} alt="product" className="home__products__img" />
-      <h2 className="home__products__title">{el.title}</h2>
-      <s className="home__products__oldprice">{el.oldPrice}</s>
+      <Link to={`products/${el.id}`} className="home__products__to">
+        <h2 className="home__products__title">{el.title}</h2>
+        <s className="home__products__oldprice">{el.oldPrice}</s>
+      </Link>
       <div className="home__products__exem">
-        <b className="home__products__price">{el.price}</b>
+        <Link to={`products/${el.id}`} className="home__products__price">
+          {el.price}
+        </Link>
         <button className="home__products__cart">
           <img
             onClick={() => dispatch(addToCart(el))}
@@ -92,7 +97,9 @@ const HomeProducts = () => {
             Мебельные установки
           </option>
         </select>
-        <div className="home__products__wrapper">{products}</div>
+        <div className="home__products__wrapper">
+          {isLoading ? <ProductsLoading /> : products}
+        </div>
         <button
           onClick={() => setLimit((p) => p + 4)}
           className="home__products__limit"
