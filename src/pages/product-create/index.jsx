@@ -5,6 +5,10 @@ import { toast } from "react-toastify";
 import "../../sass/pages/product-create.scss";
 
 const ProductCreate = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const [createProduct, { data, error, isError }] = useCreateProductMutation();
 
   const { data: categories } = useGetCategoryQuery();

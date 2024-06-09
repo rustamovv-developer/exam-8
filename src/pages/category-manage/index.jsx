@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React, { memo, useEffect } from "react";
 import {
   useDeleteCategoryMutation,
   useGetCategoryQuery,
@@ -8,6 +8,10 @@ import del from "../../assets/images/white-basket.svg";
 import "../../sass/pages/category-manage.scss";
 
 const CategoryManage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const { data, isLoading, error } = useGetCategoryQuery();
   const [deleteProduct, {}] = useDeleteCategoryMutation();
 

@@ -1,0 +1,58 @@
+@import "../utils/variables";
+
+.dark .basket {
+  background-color: $dark-color;
+  &__center {
+    background-color: $dark-color;
+    border: 1px solid $white-color;
+  }
+  &__top {
+    &__text {
+      color: $white-color;
+      opacity: 60%;
+    }
+  }
+  &__product {
+    &__title,
+    &__price,
+    &__pm,
+    &__count {
+      color: $white-color;
+    }
+    &__text {
+      color: $white-color;
+      opacity: 80%;
+    }
+  }
+  &__bottom {
+    &__info,
+    &__pay {
+      background-color: $dark-color;
+      border: 1px solid $white-color;
+    }
+    &__title {
+      color: $white-color;
+    }
+    &__input,
+    &__textarea {
+      background-color: transparent;
+      border: 1px solid $white-color;
+      color: $white-color;
+      &::placeholder {
+        color: $white-color;
+        opacity: 60%;
+      }
+    }
+    &__text,
+    &__small {
+      color: $white-color;
+      opacity: 60%;
+    }
+    &__price {
+      color: $white-color;
+    }
+    &__btn {
+      box-shadow: 4px 2px 15px 1px #999;
+    }
+  }
+}

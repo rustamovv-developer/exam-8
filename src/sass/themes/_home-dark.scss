@@ -1,0 +1,74 @@
+@import "../utils/variables";
+
+.dark .home {
+  &__swiper {
+    background-color: $dark-color;
+  }
+  &__slidebar {
+    background-color: $primary-color;
+  }
+  &__slide {
+    &__title {
+      color: $white-color;
+    }
+    &__btn {
+      background-color: $dark-color;
+    }
+  }
+  &__catolog {
+    background-color: $dark-color;
+    &__card {
+      background-color: $dark-color;
+      border: 1px solid $white-color;
+      transition: all 250ms;
+      &:hover {
+        box-shadow: 4px 2px 8px 0px $white-color;
+      }
+    }
+    &__title,
+    &__link {
+      color: $white-color;
+    }
+  }
+  &__nornlight {
+    background-color: $dark-color;
+    &__title,
+    &__text {
+      color: $white-color;
+    }
+  }
+  &__products {
+    background-color: $dark-color;
+    &__link {
+      color: $white-color;
+    }
+    &__img {
+      border-radius: 10px;
+    }
+    &__title,
+    &__oldprice,
+    &__price {
+      color: $white-color;
+    }
+    &__oldprice {
+      opacity: 50%;
+    }
+    &__limit {
+      box-shadow: 4px 2px 20px 0px #999;
+    }
+  }
+  &__texts {
+    background-color: $dark-color;
+    &__title {
+      color: $white-color;
+    }
+    &__text {
+      color: $white-color;
+      opacity: 60%;
+    }
+  }
+}
+
+.dark .swiper-pagination-bullet {
+  background-color: $white-color;
+}

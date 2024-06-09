@@ -1,0 +1,12 @@
+@import "../utils/variables";
+
+.dark .return {
+  background-color: $dark-color;
+  &__title {
+    color: $white-color;
+  }
+  &__text {
+    color: $white-color;
+    opacity: 60%;
+  }
+}

@@ -1,0 +1,102 @@
+@import "../utils/variables";
+
+.dark .adv {
+  background-color: $dark-color;
+  &__link,
+  &__text {
+    color: $white-color;
+  }
+  &__link {
+    &::before {
+      content: "";
+      position: absolute;
+      display: flex;
+      margin: auto;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: $white-color;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: all 0.6s;
+    }
+    &:hover::before {
+      transform: scaleX(1.01);
+    }
+  }
+}
+.dark .nav {
+  background-color: $dark-color;
+  &__title {
+    color: $white-color;
+  }
+  &__search {
+    border: 1px solid $white-color;
+    &__input {
+      background-color: transparent;
+      color: $white-color;
+      &::placeholder {
+        color: $white-color;
+      }
+    }
+  }
+  &-shrink {
+    box-shadow: 0px 0px 15px 5px $white-color !important;
+  }
+}
+.dark .footer {
+  background-color: $dark-color;
+  &__tel,
+  &__link,
+  &__title {
+    color: $white-color;
+  }
+  &__stock {
+    color: $dark-color;
+    z-index: -100000;
+    opacity: 0;
+  }
+}
+.dark .context {
+  &__text {
+    color: $white-color;
+  }
+  &__btn {
+    color: $white-color;
+    border: 1px solid $white-color;
+    box-shadow: 8px 5px 30px 1px #555;
+  }
+}
+.dark .brands {
+  background-color: $dark-color;
+  &__img {
+    background-color: $white-color;
+    border-radius: 10px;
+    box-shadow: 2px 3px 18px 1px #999;
+  }
+}
+.dark .blog {
+  background-color: $dark-color;
+  &__title {
+    color: $white-color;
+  }
+}
+.dark .title {
+  color: $white-color;
+}
+.dark .empty {
+  &__title {
+    color: $white-color;
+    opacity: 30%;
+  }
+  &__text {
+    color: $white-color;
+  }
+  &__btn {
+    box-shadow: 4px 2px 15px 1px #999;
+  }
+}
+.dark .backtop {
+  box-shadow: 0px 0px 8px 2px $white-color;
+}

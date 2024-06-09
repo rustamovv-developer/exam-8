@@ -1,0 +1,22 @@
+@import "../utils/variables";
+
+.dark .contact {
+  background-color: $dark-color;
+  &__title {
+    color: $white-color;
+  }
+  &__address {
+    color: $white-color;
+    opacity: 60%;
+  }
+  &__info {
+    background-color: $dark-color;
+  }
+  &__text {
+    color: $white-color;
+    opacity: 60%;
+  }
+  &__btn {
+    box-shadow: 4px 2px 15px 1px #999;
+  }
+}

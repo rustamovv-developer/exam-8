@@ -3,6 +3,10 @@ import { toast } from "react-toastify";
 import { useCreateCategoryMutation } from "../../context/categoryApi";
 
 const CategoryCreate = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const [createCategory, { error, isError }] = useCreateCategoryMutation();
 
   useEffect(() => {

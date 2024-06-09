@@ -12,7 +12,6 @@ const Admin = () => {
     window.scrollTo(0, 0);
   }, []);
   const [menu, setMenu] = useState(false);
-  console.log(menu);
   return (
     <main className="admin" id="admin">
       <div className={`admin__sidebar ${menu ? "active" : ""}`}>

@@ -1,0 +1,36 @@
+@import "../utils/variables";
+
+.dark .detail {
+  background-color: $dark-color;
+  &__img {
+    border-radius: 10px;
+  }
+  &__title {
+    color: $white-color;
+  }
+  &__price {
+    color: $white-color;
+  }
+  &__text {
+    color: $white-color;
+    opacity: 60%;
+  }
+  &__pm,
+  &__quantity {
+    color: $white-color;
+  }
+  &__card {
+    &:hover {
+      transform: scale(1.02);
+      box-shadow: 0px 1px 15px $white-color;
+      border-radius: 10px;
+    }
+    &__title {
+      color: $white-color;
+    }
+    &__text {
+      color: $white-color;
+      opacity: 60%;
+    }
+  }
+}

@@ -1,17 +1,23 @@
-import React, { memo } from "react";
+import React, { memo, useEffect, useState } from "react";
 import {
   useDeleteProductMutation,
   useGetProductQuery,
+  useUpdateProductMutation,
 } from "../../context/productApi";
 import edit from "../../assets/images/edit.svg";
 import del from "../../assets/images/white-basket.svg";
 import "../../sass/pages/product-manage.scss";
 
 const ProductManage = () => {
-  const { data, isLoading, error } = useGetProductQuery({
-    limit: 8,
-  });
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const { data, isLoading, error } = useGetProductQuery();
   const [deleteProduct, {}] = useDeleteProductMutation();
+  const [updateProduct, { data: updateData }] = useUpdateProductMutation();
+
+  const [editProduct, setEditProduct] = useState(null);
 
   const handleDeleteProduct = (id) => {
     deleteProduct(id);
@@ -27,7 +33,10 @@ const ProductManage = () => {
       <div className="home__products__exem">
         <div className="home__products__price">{el.price}</div>
         <div className="product__manage__box">
-          <button className="product__manage__edit">
+          <button
+            onClick={() => setEditProduct(el)}
+            className="product__manage__edit"
+          >
             <img src={edit} alt="edit image" className="product__manage__img" />
           </button>
           <button

@@ -1,0 +1,18 @@
+@import "../utils/variables";
+
+.dark .about {
+  background-color: $dark-color;
+  &__big,
+  &__title {
+    color: $white-color;
+  }
+  &__text,
+  &__small {
+    color: $white-color;
+    opacity: 60%;
+  }
+  &__card {
+    background-color: $dark-color;
+    border: 1px solid $white-color;
+  }
+}

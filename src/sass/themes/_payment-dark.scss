@@ -1,0 +1,15 @@
+@import "../utils/variables";
+
+.dark .payment {
+  background-color: $dark-color;
+  &__title {
+    color: $white-color;
+  }
+  &__text {
+    color: $white-color;
+    opacity: 60%;
+  }
+  &__blue {
+    opacity: 100%;
+  }
+}

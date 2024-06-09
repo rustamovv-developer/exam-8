@@ -4,20 +4,25 @@ import { useGetProductQuery } from "../../context/productApi";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleToWishes } from "../../context/wishlistSlice";
 import { addToCart } from "../../context/cartSlice";
+import { useGetCategoryQuery } from "../../context/categoryApi";
 import right from "../../assets/images/arrow-right.svg";
 import heart from "../../assets/images/like.svg";
 import fillHeart from "../../assets/images/fill-heart.svg";
 import cartImg from "../../assets/images/light-cart.svg";
 import ProductsLoading from "../products-loading";
 
-const HomeProducts = () => {
-  const [limit, setLimit] = useState(8);
+const HomeProducts = ({ data, isLoading, setLimit }) => {
+  const { data: categoryData } = useGetCategoryQuery();
+  const [categoryValue, setCategoryValue] = useState("");
 
-  const { data, error, isLoading } = useGetProductQuery({ limit });
   let dispatch = useDispatch();
   const wishes = useSelector((state) => state.wishlist.value);
 
-  let products = data?.map((el) => (
+  const filteredProduct = categoryValue
+    ? data?.filter((el) => el.category === categoryValue)
+    : data;
+
+  let products = filteredProduct?.map((el) => (
     <div key={el.id} className="home__products__card">
       <button onClick={() => dispatch(toggleToWishes(el))}>
         {wishes.some((w) => w.id === el.id) ? (
@@ -57,45 +62,35 @@ const HomeProducts = () => {
           </Link>
         </div>
         <div className="home__products__category">
-          <NavLink className="home__products__link">Светильники</NavLink>
-          <NavLink className="home__products__link">Люстры</NavLink>
-          <NavLink className="home__products__link">Лампы</NavLink>
-          <NavLink className="home__products__link">Настольные лампы</NavLink>
-          <NavLink className="home__products__link">Ночники</NavLink>
-          <NavLink className="home__products__link">Подстветка</NavLink>
-          <NavLink className="home__products__link">Уличное освещение</NavLink>
-          <NavLink className="home__products__link">
-            Мебельные установки
+          <NavLink
+            onClick={() => setCategoryValue("")}
+            className="home__products__link"
+          >
+            Все
           </NavLink>
+          {categoryData?.map((el) => (
+            <NavLink
+              onClick={() => setCategoryValue(el.title)}
+              key={el.id}
+              className="home__products__link"
+            >
+              {el.title}
+            </NavLink>
+          ))}
         </div>
         <select className="home__products__res">
-          <option className="home__products__link" value="all">
+          <option
+            onClick={() => setCategoryValue("")}
+            className="home__products__link"
+            value="all"
+          >
             Все
           </option>
-          <option className="home__products__link" value="all">
-            Светильники
-          </option>
-          <option className="home__products__link" value="all">
-            Люстры
-          </option>
-          <option className="home__products__link" value="all">
-            Лампы
-          </option>
-          <option className="home__products__link" value="all">
-            Настольные лампы
-          </option>
-          <option className="home__products__link" value="all">
-            Ночники
-          </option>
-          <option className="home__products__link" value="all">
-            Подстветка
-          </option>
-          <option className="home__products__link" value="all">
-            Уличное освещение
-          </option>
-          <option className="home__products__link" value="all">
-            Мебельные установки
-          </option>
+          {categoryData?.map((el) => (
+            <option key={el.id} className="home__products__link" value="all">
+              {el.title}
+            </option>
+          ))}
         </select>
         <div className="home__products__wrapper">
           {isLoading ? <ProductsLoading /> : products}

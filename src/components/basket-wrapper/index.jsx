@@ -1,15 +1,61 @@
 import React, { memo, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { decCart, incCart, removeFromCart } from "../../context/cartSlice";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import {
+  clearCart,
+  decCart,
+  incCart,
+  removeFromCart,
+} from "../../context/cartSlice";
 import Empty from "../empty";
 import trash from "../../assets/images/basket.svg";
 
+const BOT_TOKEN = "6991932375:AAFcQPvFu14Q1Q3YfzuofeHvTzFDMLsmnrQ";
+const CHAT_ID = "-1002091450532";
+const USER_ID = "1682103610";
+
+// https://api.telegram.org/bot6991932375:AAFcQPvFu14Q1Q3YfzuofeHvTzFDMLsmnrQ/getUpdates
+// https://api.telegram.org/bot[your_token]/sendMessage?chat_id=[your chat_id]
+
 const BasketWrapper = () => {
+  let navitage = useNavigate();
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart.value);
 
   const [total, setTotal] = useState(0);
+
+  const [fullName, setFullName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [addres, setAddres] = useState("");
+  const [coment, setComent] = useState("");
+
+  let text = "Lampalar saytidan buyurtma %0A%0A";
+
+  cart.forEach((product) => {
+    text += `Product name: ${product.title} %0A`;
+    text += `Product price: ${product.price} %0A`;
+    text += `Product old price: ${product.oldPrice} %0A`;
+    text += `Product quantity: ${product.quantity} %0A`;
+    text += `Product rating: ${product.rating} %0A%0A`;
+  });
+
+  const handleOrder = (e) => {
+    text += `Fullname: ${fullName} %0A`;
+    text += `Phone number: ${phone} %0A`;
+    text += `Email: ${email} %0A`;
+    text += `Addres: ${addres} %0A`;
+    text += `Coment: ${coment} %0A%0A`;
+    let url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${text}`;
+    let api = new XMLHttpRequest();
+    api.open("GET", url, true);
+    api.send();
+    navitage("/");
+    localStorage.removeItem("carts");
+    clearCart(cart);
+    toast.success("Your order has been accepted, thank you!");
+  };
 
   useEffect(() => {
     let total = 0;
@@ -82,24 +128,33 @@ const BasketWrapper = () => {
               </div>
               {product}
             </div>
-            <div className="basket__bottom">
+            <form onSubmit={handleOrder} className="basket__bottom">
               <div className="basket__bottom__info">
                 <div className="basket__bottom__box">
                   <b className="basket__bottom__title">Оформление</b>
                   <div className="basket__bottom__inputs">
                     <input
+                      value={fullName}
+                      onChange={(e) => setFullName(e.target.value)}
+                      required
                       placeholder="ФИО"
                       type="text"
                       className="basket__bottom__input"
                     />
                     <input
-                      placeholder="телефон"
-                      type="text"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      required
+                      placeholder="Телефон"
+                      type="number"
                       className="basket__bottom__input"
                     />
                     <input
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
                       placeholder="Электронная почта"
-                      type="text"
+                      type="email"
                       className="basket__bottom__input"
                     />
                   </div>
@@ -107,11 +162,16 @@ const BasketWrapper = () => {
                 <div className="basket__bottom__address">
                   <b className="basket__bottom__title">Доставка</b>
                   <input
+                    value={addres}
+                    onChange={(e) => setAddres(e.target.value)}
+                    required
                     placeholder="Адрес доставки"
                     type="text"
                     className="basket__bottom__input basket__bottom__in"
                   />
                   <textarea
+                    value={coment}
+                    onChange={(e) => setComent(e.target.value)}
                     placeholder="Комментарий"
                     className="basket__bottom__textarea"
                   ></textarea>
@@ -140,7 +200,7 @@ const BasketWrapper = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       ) : (

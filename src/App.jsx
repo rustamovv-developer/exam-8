@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 // components
 import Mode from "./components/mode";
+import Backtop from "./components/backtop";
 import Adv from "./components/adv";
 import Nav from "./components/nav";
 import Footer from "./components/footer";
@@ -33,6 +34,7 @@ function App() {
   return (
     <>
       <Mode />
+      <Backtop />
       <Adv />
       <Nav />
       <Routes>

@@ -1,0 +1,31 @@
+@import "../utils/variables";
+
+.dark .garant {
+  background-color: $dark-color;
+  &__title {
+    color: $white-color;
+  }
+  &__item {
+    color: $white-color;
+    &::after {
+      position: absolute;
+      content: "";
+      width: 5px;
+      height: 5px;
+      background-color: $white-color;
+      border-radius: 5px;
+      top: 12px;
+      left: 0;
+      @media (max-width: 700px) {
+        width: 3px;
+        height: 3px;
+        border-radius: 3px;
+        top: 8px;
+      }
+    }
+  }
+  &__text {
+    color: $white-color;
+    opacity: 60%;
+  }
+}

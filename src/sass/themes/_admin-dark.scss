@@ -1,0 +1,21 @@
+@import "../utils/variables";
+
+.dark .admin {
+  background: $dark-color;
+}
+.dark .product__create {
+  &__title,
+  &__label {
+    color: $white-color;
+  }
+}
+.dark .product__manage {
+  &__edit {
+    background-color: $white-color;
+  }
+}
+.dark .category__manage {
+  &__title {
+    color: $white-color;
+  }
+}
