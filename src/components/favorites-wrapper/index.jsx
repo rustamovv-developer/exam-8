@@ -2,6 +2,7 @@ import React, { memo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleToWishes } from "../../context/wishlistSlice";
 import { addToCart } from "../../context/cartSlice";
+import Empty from "../empty";
 import heart from "../../assets/images/like.svg";
 import fillHeart from "../../assets/images/fill-heart.svg";
 import cartImg from "../../assets/images/light-cart.svg";
@@ -35,9 +36,15 @@ const FavoritesWrapper = () => {
     </div>
   ));
   return (
-    <div className="favorites__wrapper" id="favorites__wrapper">
-      {products}
-    </div>
+    <>
+      {wishes.length ? (
+        <div className="favorites__wrapper" id="favorites__wrapper">
+          {products}
+        </div>
+      ) : (
+        <Empty />
+      )}
+    </>
   );
 };
 

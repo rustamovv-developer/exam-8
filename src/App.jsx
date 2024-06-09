@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 // components
+import Mode from "./components/mode";
 import Adv from "./components/adv";
 import Nav from "./components/nav";
 import Footer from "./components/footer";
@@ -31,6 +32,7 @@ import "react-toastify/dist/ReactToastify.css";
 function App() {
   return (
     <>
+      <Mode />
       <Adv />
       <Nav />
       <Routes>

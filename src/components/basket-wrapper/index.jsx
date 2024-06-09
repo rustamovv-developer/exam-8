@@ -2,6 +2,7 @@ import React, { memo, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { decCart, incCart, removeFromCart } from "../../context/cartSlice";
+import Empty from "../empty";
 import trash from "../../assets/images/basket.svg";
 
 const BasketWrapper = () => {
@@ -63,83 +64,89 @@ const BasketWrapper = () => {
   ));
 
   return (
-    <div className="basket__wrapper" id="basket__wrapper">
+    <>
       <div className="basket__name">
         <b className="title">Корзина</b>
         <p className="basket__count">{cart.length}</p>
       </div>
-      <div className="basket__info">
-        <div className="basket__center">
-          <div className="basket__top">
-            <p className="basket__top__text">Фото</p>
-            <p className="basket__top__text">Товары</p>
-            <p className="basket__top__text">Описание</p>
-            <p className="basket__top__text">Артикул</p>
-            <p className="basket__top__text">Количество</p>
+      {cart.length ? (
+        <div className="basket__wrapper" id="basket__wrapper">
+          <div className="basket__info">
+            <div className="basket__center">
+              <div className="basket__top">
+                <p className="basket__top__text">Фото</p>
+                <p className="basket__top__text">Товары</p>
+                <p className="basket__top__text">Описание</p>
+                <p className="basket__top__text">Артикул</p>
+                <p className="basket__top__text">Количество</p>
+              </div>
+              {product}
+            </div>
+            <div className="basket__bottom">
+              <div className="basket__bottom__info">
+                <div className="basket__bottom__box">
+                  <b className="basket__bottom__title">Оформление</b>
+                  <div className="basket__bottom__inputs">
+                    <input
+                      placeholder="ФИО"
+                      type="text"
+                      className="basket__bottom__input"
+                    />
+                    <input
+                      placeholder="телефон"
+                      type="text"
+                      className="basket__bottom__input"
+                    />
+                    <input
+                      placeholder="Электронная почта"
+                      type="text"
+                      className="basket__bottom__input"
+                    />
+                  </div>
+                </div>
+                <div className="basket__bottom__address">
+                  <b className="basket__bottom__title">Доставка</b>
+                  <input
+                    placeholder="Адрес доставки"
+                    type="text"
+                    className="basket__bottom__input basket__bottom__in"
+                  />
+                  <textarea
+                    placeholder="Комментарий"
+                    className="basket__bottom__textarea"
+                  ></textarea>
+                </div>
+              </div>
+              <div className="basket__bottom__pay">
+                <b className="basket__bottom__title">Оплата</b>
+                <div className="basket__bottom__exem">
+                  <div className="basket__bottom__texts">
+                    <p className="basket__bottom__text">Товары</p>
+                    <p className="basket__bottom__text">{total}₽</p>
+                  </div>
+                  <div className="basket__bottom__texts">
+                    <p className="basket__bottom__text">Доставка</p>
+                    <p className="basket__bottom__text">20₽</p>
+                  </div>
+                </div>
+                <b className="basket__bottom__price">{total + 20}₽</b>
+                <div className="basket__bottom__end">
+                  <button className="basket__bottom__btn">Купить</button>
+                  <div className="basket__bottom__check">
+                    <div className="basket__bottom__checkbox"></div>
+                    <p className="basket__bottom__small">
+                      Я согласен наобработку моих персональных данных
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          {product}
         </div>
-        <div className="basket__bottom">
-          <div className="basket__bottom__info">
-            <div className="basket__bottom__box">
-              <b className="basket__bottom__title">Оформление</b>
-              <div className="basket__bottom__inputs">
-                <input
-                  placeholder="ФИО"
-                  type="text"
-                  className="basket__bottom__input"
-                />
-                <input
-                  placeholder="телефон"
-                  type="text"
-                  className="basket__bottom__input"
-                />
-                <input
-                  placeholder="Электронная почта"
-                  type="text"
-                  className="basket__bottom__input"
-                />
-              </div>
-            </div>
-            <div className="basket__bottom__address">
-              <b className="basket__bottom__title">Доставка</b>
-              <input
-                placeholder="Адрес доставки"
-                type="text"
-                className="basket__bottom__input basket__bottom__in"
-              />
-              <textarea
-                placeholder="Комментарий"
-                className="basket__bottom__textarea"
-              ></textarea>
-            </div>
-          </div>
-          <div className="basket__bottom__pay">
-            <b className="basket__bottom__title">Оплата</b>
-            <div className="basket__bottom__exem">
-              <div className="basket__bottom__texts">
-                <p className="basket__bottom__text">Товары</p>
-                <p className="basket__bottom__text">12 300₽</p>
-              </div>
-              <div className="basket__bottom__texts">
-                <p className="basket__bottom__text">Доставка</p>
-                <p className="basket__bottom__text">0₽</p>
-              </div>
-            </div>
-            <b className="basket__bottom__price">12 800₽</b>
-            <div className="basket__bottom__end">
-              <button className="basket__bottom__btn">Купить</button>
-              <div className="basket__bottom__check">
-                <div className="basket__bottom__checkbox"></div>
-                <p className="basket__bottom__small">
-                  Я согласен наобработку моих персональных данных
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+      ) : (
+        <Empty />
+      )}
+    </>
   );
 };
 

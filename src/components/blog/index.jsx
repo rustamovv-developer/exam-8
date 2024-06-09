@@ -54,7 +54,7 @@ const Blog = ({ display }) => {
             spaceBetween={30}
             effect={"fade"}
             autoplay={{
-              delay: 4000,
+              delay: 3000,
               disableOnInteraction: false,
             }}
             pagination={{ clickable: true }}

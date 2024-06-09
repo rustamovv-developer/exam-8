@@ -1,6 +1,8 @@
 import React, { memo } from "react";
 import rightGrey from "../../assets/images/arrow-right-grey.svg";
 import img1 from "../../assets/images/home-catolog-1.png";
+import Brands from "../../components/brands";
+import Blog from "../../components/blog";
 import "../../sass/pages/categories.scss";
 
 const Categories = () => {
@@ -24,6 +26,8 @@ const Categories = () => {
             <img src={img1} alt="catolog1" className="home__catolog__img" />
           </div>
         </div>
+        <Brands />
+        <Blog />
       </div>
     </main>
   );

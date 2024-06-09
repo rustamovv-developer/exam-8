@@ -1,0 +1,46 @@
+@import "../utils/variables";
+
+.category__manage {
+  position: fixed;
+  @media (max-width: 900px) {
+    position: static;
+  }
+  &__wrapper {
+    width: 100%;
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-between;
+    column-gap: 120px;
+    row-gap: 50px;
+    @media (max-width: 1460px) {
+      grid-template-columns: 1fr;
+    }
+    @media (max-width: 600px) {
+      row-gap: 20px;
+    }
+  }
+  &__card {
+    width: 450px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    @media (max-width: 860px) {
+      width: 100%;
+      gap: 16px;
+    }
+    @media (max-width: 700px) {
+      flex-direction: column;
+    }
+  }
+  &__title {
+    font-family: "M600";
+    font-size: 24px;
+    line-height: 32px;
+    color: $primary-color;
+    @media (max-width: 600px) {
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
+}

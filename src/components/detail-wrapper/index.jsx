@@ -26,7 +26,7 @@ const DetailWrapper = () => {
         <div className="detail__wrapper" id="detail__wrapper">
           <div className="detail__column">
             <img
-              src={data?.image[0]}
+              src={data?.image}
               alt="product image"
               className="detail__img"
             />

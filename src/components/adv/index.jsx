@@ -1,8 +1,13 @@
 import React, { memo } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "../../sass/components/_adv.scss";
 
 const Adv = () => {
+  let { pathname } = useLocation();
+  if (pathname.includes("/admin")) {
+    return <></>;
+  }
+
   return (
     <div className="adv" id="adv">
       <div className="container">

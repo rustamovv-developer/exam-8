@@ -1,11 +1,16 @@
 import React, { memo } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../../assets/images/logo.svg";
 import footerCarts from "../../assets/images/footer-carts.png";
 import footerVk from "../../assets/images/footer-vk.png";
 import "../../sass/layout/_footer.scss";
 
 const Footer = () => {
+  let { pathname } = useLocation();
+  if (pathname.includes("/admin")) {
+    return <></>;
+  }
+
   return (
     <footer className="footer" id="footer">
       <div className="container">

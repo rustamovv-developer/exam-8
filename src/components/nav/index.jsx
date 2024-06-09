@@ -1,5 +1,5 @@
 import React, { memo, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useGetProductQuery } from "../../context/productApi";
 import logo from "../../assets/images/logo.svg";
@@ -13,6 +13,11 @@ import closeImg from "../../assets/images/close.svg";
 import "../../sass/layout/_nav.scss";
 
 const Nav = () => {
+  let { pathname } = useLocation();
+  if (pathname.includes("/admin")) {
+    return <></>;
+  }
+
   const wishes = useSelector((state) => state.wishlist.value);
   const cart = useSelector((state) => state.cart.value);
 
@@ -99,7 +104,7 @@ const Nav = () => {
                         >
                           <div className="nav__result__info">
                             <img
-                              src={el.image[0]}
+                              src={el.image}
                               alt={el.title}
                               className="nav__result__img"
                             />
