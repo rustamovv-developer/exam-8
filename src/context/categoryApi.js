@@ -19,6 +19,15 @@ export const categoryApi = api.injectEndpoints({
       }),
       invalidatesTags: ["Category"],
     }),
+    // Update request
+    updateCategory: build.mutation({
+      query: ({ body, id }) => ({
+        url: `/category/${id}`,
+        method: "PUT",
+        body,
+      }),
+      invalidatesTags: ["Category"],
+    }),
     // Delete request
     deleteCategory: build.mutation({
       query: (id) => ({
@@ -33,5 +42,6 @@ export const categoryApi = api.injectEndpoints({
 export const {
   useCreateCategoryMutation,
   useGetCategoryQuery,
+  useUpdateCategoryMutation,
   useDeleteCategoryMutation,
 } = categoryApi;

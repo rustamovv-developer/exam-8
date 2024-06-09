@@ -45,10 +45,9 @@ const DetailWrapper = () => {
               </div>
               <p className="detail__text">{data?.description}</p>
               <div className="detail__slice">
-                {cart.some((c) => c.id === data?.id) ? (
+                {findpr?.quantity ? (
                   <div className="detail__calc">
                     <button
-                      disabled={findpr.quantity <= 1}
                       onClick={() => dispatch(decCart(data))}
                       className="detail__pm"
                     >

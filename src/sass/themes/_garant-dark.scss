@@ -6,13 +6,13 @@
     color: $white-color;
   }
   &__item {
-    color: $white-color;
+    color: #999;
     &::after {
       position: absolute;
       content: "";
       width: 5px;
       height: 5px;
-      background-color: $white-color;
+      background-color: #999;
       border-radius: 5px;
       top: 12px;
       left: 0;
@@ -25,7 +25,7 @@
     }
   }
   &__text {
-    color: $white-color;
+    color: #999;
     opacity: 60%;
   }
 }

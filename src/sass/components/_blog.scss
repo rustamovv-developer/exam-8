@@ -9,6 +9,13 @@
     align-items: center;
     justify-content: space-between;
     gap: 20px;
+    animation-name: blog;
+    animation-duration: 0.3s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: both;
+    animation-delay: 0.3s;
     @media (max-width: 700px) {
       display: none;
     }
@@ -59,5 +66,17 @@
     font-size: 14px;
     line-height: 15px;
     color: $primary-color;
+  }
+}
+
+// keyframe
+@keyframes blog {
+  0% {
+    transform: translateY(20px) scale(1);
+    opacity: 0;
+  }
+  100% {
+    transform: none;
+    opacity: 1;
   }
 }

@@ -28,6 +28,14 @@
 }
 .dark .nav {
   background-color: $dark-color;
+  &__res {
+    background-color: $dark-color;
+    box-shadow: 0px 18px 25px $white-color;
+    &__link,
+    &__text {
+      color: $white-color;
+    }
+  }
   &__title {
     color: $white-color;
   }

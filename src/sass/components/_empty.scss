@@ -23,6 +23,13 @@
     margin-bottom: 58px;
     opacity: 20%;
     text-align: center;
+    animation-name: empty-title;
+    animation-duration: 0.3s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: both;
+    animation-delay: 0.3s;
     @media (max-width: 1350px) {
       font-size: 220px;
       line-height: 250px;
@@ -44,6 +51,13 @@
     color: $primary-color;
     margin-bottom: 60px;
     text-align: center;
+    animation-name: empty;
+    animation-duration: 0.3s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: both;
+    animation-delay: 0.5s;
     @media (max-width: 900px) {
       font-size: 16px;
       line-height: 22px;
@@ -67,8 +81,37 @@
     font-family: "M600";
     font-size: 16px;
     line-height: 22px;
+    animation-name: empty;
+    animation-duration: 0.3s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: both;
+    animation-delay: 0.7s;
     @media (max-width: 320px) {
       width: 100%;
     }
+  }
+}
+
+// keyframe
+@keyframes empty-title {
+  0% {
+    transform: translateY(20px) scale(1);
+    opacity: 0;
+  }
+  100% {
+    transform: none;
+    opacity: 20%;
+  }
+}
+@keyframes empty {
+  0% {
+    transform: translateY(20px) scale(1);
+    opacity: 0;
+  }
+  100% {
+    transform: none;
+    opacity: 1;
   }
 }

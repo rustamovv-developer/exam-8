@@ -11,6 +11,13 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
+    animation-name: contact;
+    animation-duration: 0.3s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: both;
+    animation-delay: 0.6s;
   }
   &__title {
     font-family: "M600";
@@ -31,6 +38,13 @@
   }
   &__bottom {
     position: relative;
+    animation-name: contact-bottom;
+    animation-duration: 0.3s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: both;
+    animation-delay: 0.9s;
   }
   &__map {
     @media (max-width: 1000px) {
@@ -100,5 +114,27 @@
       margin: auto;
       text-align: center;
     }
+  }
+}
+
+// keyframe
+@keyframes contact {
+  0% {
+    transform: translate(20px, 10px) scale(0.98);
+    opacity: 0;
+  }
+  100% {
+    transform: none;
+    opacity: 1;
+  }
+}
+@keyframes contact-bottom {
+  0% {
+    transform: translateY(20px) scale(1);
+    opacity: 0;
+  }
+  100% {
+    transform: none;
+    opacity: 1;
   }
 }

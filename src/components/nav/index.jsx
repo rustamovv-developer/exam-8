@@ -34,7 +34,7 @@ const Nav = () => {
   };
 
   const handleNavShrink = () => {
-    if (window.scrollY > 0) {
+    if (window.scrollY > 30) {
       setNavShrink(true);
     } else {
       setNavShrink(false);

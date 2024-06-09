@@ -31,7 +31,9 @@ const HomeProducts = ({ data, isLoading, setLimit }) => {
           <img src={heart} alt="like" className="home__products__heart" />
         )}
       </button>
-      <img src={el.image} alt="product" className="home__products__img" />
+      <Link to={`products/${el.id}`}>
+        <img src={el.image} alt="product" className="home__products__img" />
+      </Link>
       <Link to={`products/${el.id}`} className="home__products__to">
         <h2 className="home__products__title">{el.title}</h2>
         <s className="home__products__oldprice">{el.oldPrice}</s>

@@ -2,6 +2,13 @@
 @import "../themes/home-dark";
 
 .home {
+  animation-name: home;
+  animation-duration: 0.3s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: both;
+  animation-delay: 0.5s;
   &__slidebar {
     display: flex;
     align-items: center;
@@ -259,6 +266,8 @@
     &__res {
       display: none;
       width: 100%;
+      padding: 10px;
+      border-radius: 10px;
       border: none;
       outline: none;
       color: $primary-color;
@@ -450,4 +459,16 @@
   height: 10px;
   background-color: $primary-color;
   opacity: 50%;
+}
+
+// keyframe
+@keyframes home {
+  0% {
+    transform: translateY(1px) scale(0.98);
+    opacity: 0;
+  }
+  100% {
+    transform: none;
+    opacity: 1;
+  }
 }

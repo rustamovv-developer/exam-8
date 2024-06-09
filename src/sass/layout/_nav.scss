@@ -7,6 +7,13 @@
   padding: 20px 0px;
   z-index: 100;
   background-color: $white-color;
+  animation-name: navbar;
+  animation-duration: 0.3s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: both;
+  animation-delay: 0.2s;
   transition: all 500ms;
   &__wrapper {
     display: flex;
@@ -321,5 +328,17 @@
       color: $primary-color;
       margin-bottom: 12px;
     }
+  }
+}
+
+// keyframe
+@keyframes navbar {
+  0% {
+    transform: translateY(5px) scale(0.98);
+    opacity: 0;
+  }
+  100% {
+    transform: none;
+    opacity: 1;
   }
 }

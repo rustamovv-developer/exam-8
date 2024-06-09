@@ -2,11 +2,11 @@ import React, { memo, useEffect, useState } from "react";
 import {
   useDeleteProductMutation,
   useGetProductQuery,
-  useUpdateProductMutation,
 } from "../../context/productApi";
 import edit from "../../assets/images/edit.svg";
 import del from "../../assets/images/white-basket.svg";
 import "../../sass/pages/product-manage.scss";
+import EditProduct from "../../components/edit-product";
 
 const ProductManage = () => {
   useEffect(() => {
@@ -15,7 +15,6 @@ const ProductManage = () => {
 
   const { data, isLoading, error } = useGetProductQuery();
   const [deleteProduct, {}] = useDeleteProductMutation();
-  const [updateProduct, { data: updateData }] = useUpdateProductMutation();
 
   const [editProduct, setEditProduct] = useState(null);
 
@@ -55,6 +54,14 @@ const ProductManage = () => {
   ));
   return (
     <main className="product__manage" id="product__manage">
+      {editProduct ? (
+        <EditProduct
+          editProduct={editProduct}
+          setEditProduct={setEditProduct}
+        />
+      ) : (
+        <></>
+      )}
       <b className="product__create__title">Manage product</b>
       <div className="product__manage__wrapper">{products}</div>
     </main>

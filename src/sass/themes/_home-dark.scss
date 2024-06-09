@@ -39,6 +39,11 @@
   }
   &__products {
     background-color: $dark-color;
+    &__res {
+      background-color: $dark-color;
+      color: $white-color;
+      border: 1px solid $white-color;
+    }
     &__link {
       color: $white-color;
     }

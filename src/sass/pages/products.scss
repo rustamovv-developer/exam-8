@@ -6,6 +6,13 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+    animation-name: products;
+    animation-duration: 0.3s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: both;
+    animation-delay: 0.5s;
     @media (max-width: 700px) {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -16,5 +23,16 @@
       display: grid;
       grid-template-columns: 1fr;
     }
+  }
+}
+
+@keyframes products {
+  0% {
+    transform: translate(-20px, 10px) scale(0.98);
+    opacity: 0;
+  }
+  100% {
+    transform: none;
+    opacity: 1;
   }
 }

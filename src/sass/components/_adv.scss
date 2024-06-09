@@ -2,6 +2,13 @@
 
 .adv {
   padding: 12px 0px;
+  animation-name: adv;
+  animation-duration: 0.2s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: both;
+  animation-delay: 0.2s;
   @media (max-width: 900px) {
     display: none;
   }
@@ -50,5 +57,17 @@
     font-size: 14px;
     line-height: 20px;
     color: #454545;
+  }
+}
+
+// keyframe
+@keyframes adv {
+  0% {
+    transform: translateY(1px) scale(0.99);
+    opacity: 0;
+  }
+  100% {
+    transform: none;
+    opacity: 1;
   }
 }

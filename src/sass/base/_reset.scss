@@ -166,8 +166,30 @@ textarea {
   font-size: 64px;
   line-height: 70px;
   color: $primary-color;
+  animation-name: title;
+  animation-duration: 0.3s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: both;
+  animation-delay: 0.2s;
   @media (max-width: 700px) {
     font-size: 28px;
     line-height: 38px;
+  }
+}
+.dark #root {
+  background-color: $dark-color;
+}
+
+// keyframe
+@keyframes title {
+  0% {
+    transform: translate(-20px, 10px) scale(0.98);
+    opacity: 0;
+  }
+  100% {
+    transform: none;
+    opacity: 1;
   }
 }

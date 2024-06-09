@@ -12,6 +12,13 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     flex-wrap: wrap;
+    animation-name: categories;
+    animation-duration: 0.3s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: both;
+    animation-delay: 0.6s;
     @media (max-width: 1260px) {
       grid-template-columns: repeat(2, 1fr);
     }
@@ -21,5 +28,17 @@
     @media (max-width: 850px) {
       grid-template-columns: 1fr;
     }
+  }
+}
+
+// keyframe
+@keyframes categories {
+  0% {
+    transform: translateY(5px) scale(0.98);
+    opacity: 0;
+  }
+  100% {
+    transform: none;
+    opacity: 1;
   }
 }
