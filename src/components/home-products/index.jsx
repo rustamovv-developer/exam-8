@@ -52,7 +52,7 @@ const HomeProducts = ({ data, isLoading, setLimit }) => {
       </div>
     </div>
   ));
-
+  console.log(categoryValue);
   return (
     <section className="home__products" id="home__products">
       <div className="container">
@@ -80,16 +80,20 @@ const HomeProducts = ({ data, isLoading, setLimit }) => {
             </NavLink>
           ))}
         </div>
-        <select className="home__products__res">
-          <option
-            onClick={() => setCategoryValue("")}
-            className="home__products__link"
-            value="all"
-          >
+        <select
+          onChange={(e) => setCategoryValue(e.target.value)}
+          className="home__products__res"
+        >
+          <option className="home__products__link" value="">
             Все
           </option>
           {categoryData?.map((el) => (
-            <option key={el.id} className="home__products__link" value="all">
+            <option
+              onChange={(e) => setCategoryValue(e.target.value)}
+              key={el.id}
+              className="home__products__link"
+              value={el.title}
+            >
               {el.title}
             </option>
           ))}
